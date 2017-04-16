@@ -1,0 +1,55 @@
+package models;
+
+public class jugador {
+	
+	private int modoJuego ;
+	private int[] tablero;
+	private final int CASILLAS = 9;
+	private int numJugador1;
+	private int numJugador2;
+	private int pos;
+	
+	
+
+
+public jugador (int modoJuego, int numJugador1, int numJugador2){
+	
+	
+	this.modoJuego = modoJuego;
+	this.numJugador1= numJugador1;
+	this.numJugador2 = numJugador2;
+	this.tablero = new int[CASILLAS];
+	
+	
+	
+}
+
+@Override
+public String toString(){
+     return "El modo de juego es "+modoJuego + " El numero del jugador 1 es  " + numJugador1+ " Y el numero del jugador 2 es "+numJugador2;
+ }
+//GETTERS
+
+public int getModoJuego(){
+	return modoJuego;
+}
+
+public int getJugador1(){
+	return numJugador1;
+}
+
+public int getJugador2(){
+	return numJugador2;
+}
+
+
+//SETTERS
+
+public void setModoJuego(int pos){
+	this.pos = pos;
+	
+}
+
+
+
+}

@@ -1,0 +1,112 @@
+package models;
+
+import java.util.Random;
+
+public class Jugador {
+	
+	private String nombre;
+	private boolean machine;
+	private int pos;
+	public String symbol ;
+	private Random numeroAleatorio;
+
+	
+	
+	Partida p = new Partida();
+	public Jugador (String nombre , boolean machine ){
+		this.nombre = nombre;
+		this.machine=machine;
+		
+	}
+	
+	public void setSymbol(String s){
+		this.symbol = s;
+	}
+	
+	
+	public String getSymbol(){
+		return symbol;
+	}
+	
+	
+
+	
+	public boolean esUnaMaquina(){
+		return machine;
+	}
+	
+	public String getNombreJugador(){
+		return nombre;
+	}
+	
+	public void MueveJugador1(int pos){
+		this.pos = pos;
+		
+		for(int i=0;i<p.getTablero().length; i++){
+			
+			if (p.getTablero()[pos] == 0){
+				p.getTablero()[pos]= 1;
+			}
+		}
+	}
+	
+	public void MueveJugador2(int pos){
+		this.pos = pos;
+		for(int i=0;i<p.getTablero().length; i++){				//Aki esta el error
+			
+			if (p.getTablero()[pos] == 0){
+				p.getTablero()[pos]= 2;
+			}
+		}
+	}
+	
+	public void MueveOrdenador1(){			//Le pasamos al ordenador el tablero ya definido
+		
+		int n;
+		String  s =getSymbol();
+		if(s.equals("X")){
+			n=1;
+		}else{
+			n=2;
+		}	
+		numeroAleatorio = new Random();	
+    	
+        int aleatorio = numeroAleatorio.nextInt(9)+0;						// nextInt((max-min)+1 + min
+		
+		for(int i=0;i<p.getTablero().length; i++){
+			
+			if (p.getTablero()[aleatorio] == 0){
+				p.getTablero()[aleatorio]= n;
+			}
+		}	
+		
+	}
+	
+	public void MueveOrdenador2(){			//Le pasamos al ordenador el tablero ya definido con su configuracion actual
+		
+		int n;
+		String  s =getSymbol();
+		if(s.equals("X")){
+			n=1;
+		}else{
+			n=2;
+		}	
+		numeroAleatorio = new Random();	
+    	
+        int aleatorio = numeroAleatorio.nextInt(9)+0;
+		
+		for(int i=0;i<p.getTablero().length; i++){
+			
+			if (p.getTablero()[aleatorio] == 0){
+				p.getTablero()[aleatorio]= n;
+			}
+		}	
+	}
+
+	
+	
+	
+
+}
+
+

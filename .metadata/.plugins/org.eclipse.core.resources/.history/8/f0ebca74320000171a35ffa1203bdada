@@ -1,0 +1,16 @@
+package models;
+
+public class Jugador {
+	
+	private String nombre;
+	private boolean machine;
+	
+	
+	public Jugador (String nombre , boolean machine ){
+		this.nombre = nombre;
+		this.machine=machine;
+	}
+
+}
+
+

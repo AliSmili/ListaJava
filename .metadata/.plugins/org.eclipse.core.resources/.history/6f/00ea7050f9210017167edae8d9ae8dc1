@@ -1,0 +1,28 @@
+package main;
+
+import models.Cola;
+
+public class prueba_cola {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+        //Array Implementation
+        Cola<String> as  = new Cola<String>(null);
+
+        String s = "Hello";
+        String s1 = "World";
+        String s2 = "Again";
+
+        as.push(s);
+        as.push(s1);
+        as.push(s2);
+
+        System.out.println (as.pop()); //LINE 15
+        System.out.println();
+        System.out.println (as.pop());
+        System.out.println();
+        System.out.println (as.pop());
+        System.out.println();
+    }
+
+}

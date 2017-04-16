@@ -1,0 +1,65 @@
+import java.util.Arrays;;
+
+public class Cola<T> {
+	
+	// ATRIBUTOS
+	//private T[] elementos;
+	
+	// CONSTRUCTOR VACÍO
+	  private int tamanio = 0;
+      private static final int CAPACIDAD_DEFECTO = 10;
+      private Object elementos[];
+
+      public Cola() {
+              elementos = new Object[CAPACIDAD_DEFECTO];
+      }
+
+      public void push(T element) {
+          if (tamanio == elementos.length) {
+                  asegurarCapa();													//Para asegurar una capacidad duplicada 
+          }
+          elementos[tamanio++] = element;
+  }
+      
+    //MÉTODOS
+      private void asegurarCapa() {
+            int nuevoTamanio = elementos.length * 2;
+            elementos = Arrays.copyOf(elementos, nuevoTamanio);						//Se hace un trasvase a una nueva asign de memoria con la doble de capacidad y se vuelca la info destruiyendo la info anterior del tamaño antiguo
+      }
+      
+      public void remove (T element){
+    	  
+    	  int contador = 0;
+    	 
+    	  for(int i = 0; i<elementos.length; i++){
+    		  
+    		  if(element == elementos[i]){
+    			  for(int j=i; j<(elementos.length-1); j++)
+                  {
+                      elementos[j] = elementos[j+1];								//Desplazamiento a la izquierda sustituyendo el elemento que queremos quitar por el siguiente
+                  }
+    			  									
+    			  contador ++;
+    			  break;
+    			  
+    		  }
+    	  }
+    		 if(contador ==0){
+    			 System.out.println("Elemento no encontrado ");
+    		 }
+    		 else{
+    			 
+    			
+    				 elementos[elementos.length-1]= null;							//Establecemos la ultima posicion del array a null despues del desplazamiento
+    				 
+    			 
+    		 }
+    		  
+    	  }
+      }
+	    
+	
+	
+      
+
+      

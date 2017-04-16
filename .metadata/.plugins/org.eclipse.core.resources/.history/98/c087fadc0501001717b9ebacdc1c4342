@@ -1,0 +1,115 @@
+package main;
+import models.*;
+import java.util.*;
+public class tresEnRaya {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		boolean ganador = false;
+		Scanner teclado = new  Scanner(System.in);
+		
+		Jugador jugador1 =new  Jugador("Ali", false);
+		Jugador jugador2 =new  Jugador("Maquina", true);
+		
+		Partida miPartida = new Partida(jugador1, jugador2);
+	
+		
+		
+		System.out.println(miPartida.getModoJuego());
+		System.out.println("El nombre del jugador 1 es "+jugador1.getNombreJugador());
+		System.out.println("El nombre del jugador 2 es "+jugador2.getNombreJugador());
+		
+		miPartida.Iniciar();
+			
+		System.out.println("El numero asignado al modo de juego actual es : "+miPartida.getNumModoJuego());
+		
+		 
+	        for (int veces = 1; veces <= 9; veces++) {
+	            if(veces%2==0){
+	            	System.out.println("Mueve el jugador 1:");
+	                jugador1.MueveJugador1(ValidarPosicion(teclado.nextLine()));
+	                ganador = miPartida.GanaJugador1();									//Se verifica si ha ganado el jugador 1
+	            }else{
+	                jugador2.MueveJugador1(ValidarPosicion(teclado.nextLine()));
+	                ganador = miPartida.GanaJugador2();									//Se verifica si ha ganado el jugador 2
+	            }
+	           miPartida.DibujaTablero();
+	            if(ganador){
+	                break;
+	            }
+	        }
+	        if(ganador){
+	            System.out.println("HAZ GANADO!!!");
+	        }else{
+	            System.out.println("VUELVE A INTENTARLO!!!");
+	        }
+		
+		
+		
+		
+		
+		
+		
+
+	}
+	
+	//Metodo para validar las opciones 
+
+	public static int ValidarOpcion(String entrada){
+		boolean error=false;
+		Scanner teclado=new Scanner(System.in);
+		int num=0;
+		do{
+			       
+			entrada=teclado.next();
+			error=false;
+			try{
+				
+				num=Integer.parseInt(entrada);
+							
+			}catch(Exception e){
+				System.out.println("Error! No ha introducido un número !");
+				error=true;
+			}
+			if((num<1 || num>3) && !error){
+				System.out.println("La Opcion introducida no es válida !");
+				error=true;
+			}
+					
+		}while(error);
+		
+		return num;
+		
+		
+	}
+	
+	public static int ValidarPosicion(String entrada){
+		boolean error=false;
+		Scanner teclado=new Scanner(System.in);
+		int num=0;
+		do{
+			       
+			entrada=teclado.next();
+			error=false;
+			try{
+				
+				num=Integer.parseInt(entrada);
+							
+			}catch(Exception e){
+				System.out.println("Error! No ha introducido un número !");
+				error=true;
+			}
+			if((num<1 || num>9) && !error){											//La primera casilla es el numero 1, etc...
+				System.out.println("La Opcion introducida no es válida !");
+				error=true;
+			}
+					
+		}while(error);
+		
+		return num;
+		
+		
+	}
+
+}

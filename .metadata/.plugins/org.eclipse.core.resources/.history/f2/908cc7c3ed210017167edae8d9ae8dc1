@@ -1,0 +1,92 @@
+package main;
+import java.util.Scanner;
+import models.*;
+
+
+public class Prueba_Cola {
+
+	private static miCola<String> cola;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int i = 0;
+		String valor = "";
+		int opcion;
+		boolean masValores = true;
+		boolean error = false;
+		cola= new miCola();
+		
+		do {
+			opcion = mostrarMenu();
+			realizarOpcion(opcion);
+		} while (opcion != 9);
+		
+		
+	}
+	
+	public static int mostrarMenu(){
+		Scanner sc = new Scanner(System.in);
+		System.out.println("+++ SELECCIONE UNA OPCIÓN DEL MENÚ : +++");
+		System.out.println("1. Ver Tamaño de la Cola");
+		System.out.println("2. Añadir elemento a la Cola");
+		System.out.println("3. Extraer último elemento de la Cola");
+		System.out.println("4. Quitar un elemento de la Cola");
+		System.out.println("5. Comprobar si existe un elemento en la Cola");
+		System.out.println("6. Limpiar Cola / Borrado de todos los elementos de la Cola");
+		System.out.println("7. Comprobar si la Cola esta vacía o contiene algún elemento");
+		System.out.println("8. Listar elementos de la Cola");
+		System.out.println("9. Salir");
+		
+		return sc.nextInt();
+		
+	}
+	public static void realizarOpcion(int opcion) {
+		Scanner sc = new Scanner (System.in);
+		int tam;
+		System.out.println("Empezemos !");
+		switch (opcion) {
+		case 1:
+			System.out.println("El Tamaño de la Cola es :"+cola.size());
+			break;
+		case 2:
+			System.out.println("Introduzca un elemento a la Cola :");									
+			cola.push(sc.next());
+			break;
+		case 3:
+			cola.pop();
+			break;
+		case 4:
+			System.out.println("Introduzca un elemento que desea retirar de la Cola :");
+			cola.remove(sc.next());
+			break;
+		case 5:
+			System.out.println("Introduzca un elemento que desea comprobar si existe en la Cola :");
+			cola.contains(sc.next());
+			break;
+		case 6:
+			cola.clear();
+			System.out.println("Se han borrado todos los elementos de la Cola");
+			break;
+		case 7:
+			if( !cola.isEmpty()){
+				System.out.println("La Cola contiene algún elemento ");
+			}else{
+				System.out.println("La Cola está vacía ");
+			}
+			break;
+		case 8:
+			System.out.println(cola);
+			break;
+		case 9:
+			System.out.println("Que tenga un Feliz Día !");
+			break;
+		default:
+			System.out.println("[ERROR] Opción no válida.");
+			break;
+			
+		}
+			
+			
+			
+	}
+}

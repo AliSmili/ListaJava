@@ -1,0 +1,151 @@
+package models;
+import java.util.ArrayList;
+public class Carta {
+
+	private int numero;
+	private int palo;
+	private int Id;
+	private float valor;
+	private int[]cartasId ;
+	private int[]cartasNum ;
+	private int[]cartasPalo ;
+	private ArrayList<Carta>cartas= new ArrayList<Carta>();
+	
+	
+
+	
+	//Constructor
+	
+	
+	public Carta (int numero , int palo){
+	
+	this.numero = numero;									//Entre 1 y 10				
+	this.palo = palo;										//Entre 0 y 3
+	
+		
+}
+	
+	
+	public Carta (int Id){									//Entre 1 y 40
+		
+		this.Id = Id;
+	}
+	
+
+
+
+	/*public void Carta(int Id, int numero, int palo){
+		
+		this.numero = numero;													
+		this.palo = palo;										
+		this.Id = Id;
+		
+	}*/
+	 //CREACION DE LAS CARTAS
+	
+	
+	public Carta(int a, int b, int c) {
+		for(int i=1;i<41;i++){
+			
+			
+			cartasId[i]=i;
+	
+		}
+	for(int i=1;i<11;i++){
+			
+			
+			cartasNum[i]=i;
+	
+		
+		
+		cartasPalo[i]=i;
+
+	}
+	for (int i=1; i<41;){
+	Carta cart = new Carta(i);
+	cartas.add(cart);
+	
+		
+	}
+	}
+	
+
+	
+	
+	
+	
+	
+	//Getters y Setters
+	
+	public int getId(){
+		
+		return Id;
+	}
+	
+	public void setId(int ident){
+		
+		this.Id = ident;
+	}
+	
+	public int getNumero(){
+		
+		return numero;
+	}
+
+	public int getPalo(){
+	
+	return palo;
+	}
+	
+	public String getNombreNumero(){
+		
+		return "1=as , 2=dos , 3=tres , 4=cuatro , 5=cinco , 6=seis , 7=siete , 8=sota , 9=caballo , 10=rey ";
+	}
+	
+	public String getNombrePalo (){
+		
+		return " 0=Oros , 1=Copas , 2=Espadas , 3=Bastos ";
+	}
+	
+	public String getNombreCarta(){
+		
+		return numero+" de "+palo;
+	}
+	
+	public float getValor7ymedia(){									//Devuelve el valor de la carta en juego
+		
+		return valor;
+	}
+	
+	//Setters
+	
+	public void setNumero(int num){
+		
+		this.numero = num;
+	}
+	
+	public void setNombreCarta(int num){
+		
+		palo = num;
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+
+
+
+
+
+
+}

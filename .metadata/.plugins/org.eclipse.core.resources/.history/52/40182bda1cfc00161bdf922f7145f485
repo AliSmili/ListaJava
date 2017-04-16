@@ -1,0 +1,185 @@
+package models;
+//import java.util.ArrayList;
+import java.util.*;
+
+public class Baraja {
+	
+	private ArrayList<Carta>lista_cartas;
+	private ArrayList<Carta>baraja_nueva;
+	private ArrayList<Carta>baraja_lista;
+	private String nombre;
+	private int tipoBaraja;
+	private int numCartas;
+	private boolean barajada;
+	
+	
+
+	//Constructor
+	
+	public Baraja(String nombre, int tipoBaraja , boolean barajada , ArrayList<Carta> lista_cartas) {	
+		this.lista_cartas = new ArrayList<Carta>();
+		if(tipoBaraja == 1){
+		this.tipoBaraja = tipoBaraja ;
+		this.numCartas = 40;
+		}else{
+		
+		if(tipoBaraja == 2){
+			this.tipoBaraja = tipoBaraja ;
+			this.numCartas = 80;
+			}else{
+				this.tipoBaraja = 0 ;
+				this.numCartas = 0;
+			}
+		}
+		this.barajada = barajada;
+		
+		if(barajada){
+			this.lista_cartas = baraja_lista; 
+		}else{
+			this.lista_cartas = baraja_nueva;
+		}
+			
+	}
+	@Override
+	
+	public String toString() {
+		
+		return "Baraja [nombre=" + nombre + ",tipoBaraja=" + tipoBaraja + "+ ¿Es barajada ? la respuesta es "+barajada+" ]";
+	}
+	
+	public boolean esBarajada(){
+		return barajada;
+	}
+	
+	public int getTipoBaraja(){
+	
+		return tipoBaraja;
+	
+	}
+	
+	public String getNombreBaraja(){
+		
+		return nombre;
+	
+	}
+	
+	
+	//Metodos
+	
+	public ArrayList<Carta> Resetear(){										//Devolvemos un ArrayList vacío
+		
+		this.lista_cartas= new ArrayList<Carta>();
+		
+		
+		return lista_cartas;
+		
+	}
+	
+	public void meterCarta(Carta c){
+		
+		
+		lista_cartas.add(c);
+	}
+	
+	public void crearBarajaNueva(ArrayList<Carta> misCartas){
+		
+		Carta c =new Carta();
+		this.lista_cartas= misCartas;
+		
+				for(int i=0; i<=3 ; i++){
+						for(int j=1; j<=10 ; j++){	
+							int ident =1;
+							c.setNumero(j);
+							c.setNombreCarta(i);
+							c.setId(ident);
+							lista_cartas.add(c);
+							ident++;
+							
+					
+				}
+			}
+				
+		}
+			
+		
+		
+	
+		public void mostrarBarajaNueva(Baraja bar){
+			
+			 this.lista_cartas = bar.lista_cartas;
+			 
+			 System.out.println(this.lista_cartas);
+			 
+			 
+		      
+		               	   
+		}
+												
+	
+	
+	public void Barajar(ArrayList<Carta> bar){		
+		
+		this.lista_cartas = bar;
+		Random rnd = new Random();
+		int aleatorio=0;
+		int ident=0;
+		
+		aleatorio = rnd.nextInt(40)+1;
+		Carta c = new Carta(ident);
+		
+		do{
+			 c.setId(aleatorio);
+			
+			//baraja_nueva.remove(c);
+			
+			for(int i=0; i<baraja_lista.size();i++){
+			if(baraja_lista.get(aleatorio)== null){
+			baraja_lista.add(c);
+			}
+			
+			}
+		//c.setNumero(rnd.nextInt(10)+1);
+		//lista_cartas.add(i ,c );
+		
+		
+		}while(baraja_lista.size()<=40);
+	}
+	
+	public void mostrarBarajaLista(ArrayList<Carta>bar){
+		
+		System.out.println("La baraja nueva es : "+baraja_lista); 
+	}
+	
+	
+	
+		
+		
+	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

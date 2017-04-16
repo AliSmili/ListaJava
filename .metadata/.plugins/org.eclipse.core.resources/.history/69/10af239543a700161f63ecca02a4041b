@@ -1,0 +1,12 @@
+import java.util.Scanner;
+public class EjercicioCapicua {
+
+	public static void main(String[] args) {
+		//  EJERCICIO NUMERO CAPÍCUA....esta mal pero hay que repasarlo
+		Scanner teclado=new Scanner(System.in);
+		float numero;
+		System.out.println("Introduzca un numero entre 0 y 9999");
+		numero=teclado.nextFloat();
+		if(numero<0|| numero>9999){
+			System.out.println("Dato introducido fuera del rango de valores permitidos");
+		}

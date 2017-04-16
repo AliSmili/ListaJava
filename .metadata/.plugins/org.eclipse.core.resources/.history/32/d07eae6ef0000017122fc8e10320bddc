@@ -1,0 +1,81 @@
+package main;
+import java.util.*;
+import java.util.Scanner;
+import models.*;
+
+public class TresEnRaya {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		Scanner teclado = new Scanner(System.in);
+		
+		
+		Jugador jugador1 = new Jugador("Ali", false);
+		Jugador jugador2 = new Jugador ("Chatarra", true);
+		Partida miPartida = new Partida(jugador1 , jugador2);
+	}
+
+	
+	
+//Metodo para validar las opciones de switch
+
+public static int ValidarModoJuego(String entrada){
+	boolean error=false;
+	Scanner teclado=new Scanner(System.in);
+	int num=0;
+	do{
+		       
+		entrada=teclado.next();
+		error=false;
+		try{
+			
+			num=Integer.parseInt(entrada);
+						
+		}catch(Exception e){
+			System.out.println("Error! No ha introducido un número !");
+			error=true;
+		}
+		if((num<1 || num>3) && !error){
+			System.out.println("La Opcion introducida no es válida !");
+			error=true;
+		}
+				
+	}while(error);
+	
+	return num;
+		
+}
+
+public static int ValidarPosicion(String entrada , int[]tab){
+	boolean error=false;
+	Scanner teclado=new Scanner(System.in);
+	int num=0;
+	do{
+		       
+		entrada=teclado.next();
+		error=false;
+		try{
+			
+			num=Integer.parseInt(entrada);
+						
+		}catch(Exception e){
+			System.out.println("Error! No ha introducido un número !");
+			error=true;
+		}
+		if((num<0 || num>9) && !error){
+			System.out.println("La Opcion introducida no es válida !");
+			error=true;
+		}
+				
+	}while(error);
+	
+	return num;
+		
+}
+
+
+
+
+
+
+}

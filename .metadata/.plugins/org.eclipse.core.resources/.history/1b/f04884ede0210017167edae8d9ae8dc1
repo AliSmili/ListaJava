@@ -1,0 +1,34 @@
+package main;
+import java.util.Scanner;
+
+
+public class Prueba_Cola {
+
+	private static miCola<T> c;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int i = 0;
+		String valor = "";
+		boolean masValores = true;
+		boolean error = false;
+		c= new miCola();
+		
+		
+
+		
+	
+
+
+		
+
+	}
+	
+	public static void MostrarMenu(){
+		
+		System.out.println("+++ Seleccione Un Opción del Menú : +++");
+		System.out.println("+++ Seleccione Un Opción del Menú : +++");
+		
+	}
+
+}

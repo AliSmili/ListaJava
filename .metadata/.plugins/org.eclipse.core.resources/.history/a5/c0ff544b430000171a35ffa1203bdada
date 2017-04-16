@@ -1,0 +1,96 @@
+package models;
+
+public class Partida {
+	
+	private int modoJuego ;
+	private int[] tablero;
+	private final int CASILLAS = 9;
+	public String symbol;
+	private String nombre;
+	private boolean machine;
+	private int num;
+	
+
+	
+
+
+public Partida (Jugador jug1, Jugador jug2){
+	
+	
+	jug1.setSymbol("X");
+	jug2.setSymbol ("O");
+	
+	if(jug1.getSimbol().equals("X")){
+		this.num = 1;
+	}else{
+		this.num = 2;											//Dentro del array se introduce 1 o 2...0 significa que no se ha colocado nada en la casilla
+	}
+	
+	
+	if(jug1.esUnaMaquina()==false && jug2.esUnaMaquina()==false){
+		this.modoJuego = 0;
+	}else{
+		if(jug1.esUnaMaquina()==false && jug2.esUnaMaquina()==true){
+			this.modoJuego = 1;
+		}if(jug1.esUnaMaquina()==true && jug2.esUnaMaquina()==true){
+			this.modoJuego = 2;
+		}
+	}
+		
+	this.tablero = new int[CASILLAS];					//instanciamos el array
+		
+}
+
+@Override
+public String toString(){
+     return "El modo de juego es "+modoJuego + " El nombre del jugador 1 es  " ;
+ }
+//GETTERS
+
+public String getModoJuego(){
+	String s="";
+	if(modoJuego == 0){
+		s= "El juego se desarrollara entre 2 jugadores humanos";
+	}else{
+		if(modoJuego==1){
+			s="El juego se disputara entre un jugador contra la máquina";
+		}else{
+			if(modoJuego==2){
+				s="El juego se disputará entre dos máquinas";
+			}
+			
+		}
+	}
+	return s;	
+}
+
+
+
+
+//SETTERS
+
+public void Iniciar(int[]tab){
+	tab = new int[CASILLAS];
+	this.tablero = tab;
+}
+
+//No hace falta un setModoJuego ya que al introducr los jugadores ya se define el modo
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

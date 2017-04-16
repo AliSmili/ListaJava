@@ -1,0 +1,31 @@
+package models;
+import java.util.Random;
+
+public class Baraja {
+	
+    private Carta mazo[]; 												//Array de Objetos tipo Carta
+    private int cartaActual; 											//Indice de la próxima carta a ser repartida
+    private final int NUMERO_DE_CARTAS = 40;
+    private Random numeroAleatorio; 									//Genera número aleatorio
+    public Baraja(){
+        String valor[] = {"As", "Dos", "Tres", "Cuatro", "Cinco", "Seis", "Siete","Sota", "Caballo", "Rey"};
+                            
+        String figura[] = {"Oros" , "Copas", "Espadas" , "Bastos"};
+
+        mazo = new Carta[NUMERO_DE_CARTAS]; 							//Crea un Array de Objetos 
+
+        cartaActual = 0; //Asignar a la carta actual el valor mazo[0]
+        numeroAleatorio = new Random(); //Generar número aleatorio
+
+        //Obtengo el valor y figura de las cartas a través de un for
+        for( int contador = 0; contador < mazo.length; contador++){
+            mazo[contador] = new Carta ( valor[ contador % 13 ], figura[ contador/13 ] );
+            /**El resultado de contador % 13 (modulo)  es un número entre 0 y 12
+             * y el resultado de contador/13 (división)  es un número entre 0 y 3
+             */
+        }
+    } //Fin del Constructor
+
+    
+
+}

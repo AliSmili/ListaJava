@@ -1,0 +1,10 @@
+package models;
+
+public interface Rect {
+
+	
+	void devuelveArea();
+	void devuelvePerimetro();
+		
+	
+}

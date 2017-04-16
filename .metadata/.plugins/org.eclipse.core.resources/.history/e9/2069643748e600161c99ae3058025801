@@ -1,0 +1,59 @@
+
+public class EjercicioR4_6 {
+
+	public static void main(String[] args) {
+		/*Escribe una función “EliminaElementosArray” a la que le pasas dos parámetros: un 
+		array de enteros y un valor entero. La función eliminará del array el valor entero 
+		independientemente de la posición en la que se encuentre. Si el valor se repite, se 
+		eliminarán todas las veces que se repite. */
+		
+		
+		int[]miArray={3,2,5,3,9,8,5,8,7,4,8,12};
+		int numero=8;
+		int[]arrayModificado;
+		
+		arrayModificado=Elimina1ElementoArray(miArray,numero);
+		System.out.println("El array resultante es :");
+		ImprimeArray(arrayModificado);
+		
+		
+		
+		
+		
+
+	}
+	public static int[]Elimina1ElementoArray(int[]array ,int num){
+		
+		int contador=0;
+		int[]nuevoArray=new int[array.length];				//Primero redimensiono creando un nuevo array
+		int pos=0;
+		
+		for(int i=0;i<array.length;i++){
+			
+			if(array[i]==num ){
+				contador++;
+				nuevoArray=new int[array.length-contador];
+				pos=i;
+				nuevoArray[i]=array[pos];
+																			
+			}else{
+			nuevoArray[i]=array[i];
+			}
+		}
+															//Ahora sabemos ctas veces aparece el num dentro del array (contador)
+		if(contador==0){									
+			return array;									//En caso de que el numero introducido no este en array, me devuelve el array original
+		}else{
+			
+				
+			return nuevoArray;
+		}
+	}
+	public static void ImprimeArray(int[] fs){
+		for (int i : fs) {
+			System.out.print(" "+i+" ");
+		}
+
+	}
+
+}

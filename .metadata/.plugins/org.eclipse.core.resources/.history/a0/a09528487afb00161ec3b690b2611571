@@ -1,0 +1,127 @@
+package models;
+//import java.util.ArrayList;
+import java.util.*;
+
+public class Baraja {
+	
+	private ArrayList<Carta>lista_cartas;
+	private String nombre;
+	private int tipoBaraja;
+	private int numCartas;
+	private boolean barajada;
+	
+	
+
+	//Constructor
+
+	public Baraja() {
+		
+		this.lista_cartas = new ArrayList<Carta>();
+		
+		
+	}
+	
+	public Baraja(int tipoBaraja) {
+		this.tipoBaraja = 1 ;																//En este caso le damos este valor por defecto ya q son 40 cartas		
+		this.numCartas = 40;	
+	}
+	
+	public Baraja(String nombre, int tipoBaraja , boolean barajada) {															
+		this.tipoBaraja = 1 ;	
+		this.barajada = barajada;
+			
+	}
+	@Override
+	
+	public String toString() {
+		
+		return "Baraja [nombre=" + nombre + ",tipoBaraja=" + tipoBaraja + "]";
+	}
+	
+	public boolean esBarajada(){
+		return barajada;
+	}
+	
+	public int getTipoBaraja(){
+	
+		return tipoBaraja;
+	
+	}
+	
+	public String getNombreBaraja(){
+		
+		return nombre;
+	
+	}
+	
+	
+	//Metodos
+	
+	public ArrayList<Carta> Resetear(){										//Devolvemos un ArrayList vacío
+		
+		this.lista_cartas= new ArrayList<Carta>();
+		
+		return lista_cartas;
+		
+	}
+	
+	public void meterCarta(Carta c){
+		
+		
+		lista_cartas.add(c);
+	}
+	
+	public void crearBarajaOrd(){
+		
+		for(int i=0; i<40 ; i++){
+			Carta c = new Carta();
+			
+			
+			
+		}
+	}
+	
+	/*public ArrayList<Carta> Barajar( ){											
+		
+		Random rnd = new Random();
+	
+	for(int i=0; i<40; i++){
+		
+		c.setNumero(rnd.nextInt(10)+1);
+		//lista_cartas.add(i ,c );
+		lista_cartas.add(i , c.setNombreCarta(rnd.nextInt(3)+0));
+		
+	
+	}
+		return lista_cartas;
+		
+	}*/
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,27 @@
+import java.util.Scanner;
+public class EjercioCapicua2 {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		//  EJERCICIO NUMERO CAPÍCUA....esta mal pero hay que repasarlo
+		Scanner teclado=new Scanner(System.in);
+	
+		System.out.println("Introduzca un numero entre 0 y 9999");
+		int numero=teclado.nextInt();
+		if(numero<0 || numero>9999){
+			System.out.println("Dato introducido fuera del rango de valores permitidos");
+		}
+		else{
+			int i=0;
+			int numeroalreves=0;
+			while(numero>=0){
+			int digito=numero%10;
+			numero=(numero-digito)/10;
+			numeroalreves=  digito*(int)Math.pow(10, i)+ numeroalreves;
+			i++;
+		    }
+			System.out.println("El numero al revés es :" + numeroalreves);
+	}
+
+}
+}

@@ -1,0 +1,94 @@
+package models;
+
+public class Partida {
+	
+	private int modoJuego ;
+	private int[] tablero;
+	private final int CASILLAS = 9;
+	private int pos;
+	private String nombre;
+	private boolean machine;
+
+	
+
+
+public Partida (Jugador jug1, Jugador jug2){
+	
+	
+	if(jug1.esUnaMaquina()==false && jug1.esUnaMaquina()==false){
+		this.modoJuego = 0;
+	}else{
+		if(jug1.esUnaMaquina()==false && jug1.esUnaMaquina()==true){
+			this.modoJuego = 1;
+		}if(jug1.esUnaMaquina()==true && jug1.esUnaMaquina()==true){
+			this.modoJuego = 2;
+		}
+	}
+		
+	this.tablero = new int[CASILLAS];					//instanciamos el array
+		
+}
+
+@Override
+public String toString(){
+     return "El modo de juego es "+modoJuego + " El nombre del jugador 1 es  " ;
+ }
+//GETTERS
+
+public String getModoJuego(){
+	String s="";
+	if(modoJuego == 0){
+		s= "El juego se desarrollara entre 2 jugadores humanos";
+	}else{
+		if(modoJuego==1){
+			s="El juego se disputara entre un jugador contra la máquina";
+		}else{
+			if(modoJuego==2){
+				s="El juego se disputará entre dos máquinas";
+			}else{
+				s="El modo que se ha introducido no es válido";
+			}
+		}
+	}
+	return s;	
+}
+
+
+
+
+//SETTERS
+
+public void setModoJuego(int modoJuego){
+	this.modoJuego = modoJuego;
+		
+}
+
+
+
+public void MueveJugador1(int pos){
+	this.pos = pos;
+	
+	
+}
+
+public void MueveJugador2(int pos){
+	this.pos = pos;
+		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

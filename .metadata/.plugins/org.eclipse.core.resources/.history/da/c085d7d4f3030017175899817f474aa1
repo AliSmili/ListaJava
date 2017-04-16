@@ -1,0 +1,50 @@
+package models;
+
+public abstract class Vehiculo  implements Movible, Arrancable{
+
+	//Atributos
+	private String marca;
+	private String color;
+	private String matricula;
+	private double vAct;
+	private double vMax;
+	private String telefonoPropietrio;
+	
+	
+	// public Vehiculo (String marca, String matricula, String color, double vAct, double vMax, String telefonoPropietario ){
+	
+	//this.marca = marca;
+	//this.color = color;
+	//this.matricula = matricula;
+	//this.vAct = vAct;
+	//this.vMax = vMax;
+	//this.telefonoPropietario = telefonoPropietario;
+	
+	
+	
+
+	
+	
+	
+//}
+
+@Override
+
+	public void Arrancar(){
+	
+};
+
+	public void Parar(){
+};
+
+	public void Accelerar(){
+};
+
+	public void Frenar(){
+};
+
+}
+	
+
+	
+

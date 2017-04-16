@@ -1,0 +1,41 @@
+import java.util.Scanner;
+public class Ejercicio1 {
+
+	public static void main(String[] args) {
+		/* Realizar un programa que convierta un numero binario a decimal.
+		 * El numero debe estar guardado en un variable entera, por ejemplo, el 101 es 5 decimal.
+		 * El programa mostrara un eror si el numero no es binario.ej: 100510.
+		 * Repite el ejercicio con el numero guardado en un array
+		 */
+
+		Scanner teclado =new Scanner(System.in);
+		byte[] binario=new byte[5];
+		double decimal=0;
+		boolean esCorrecto=false;
+		final int AUX=2;
+		double indice;
+		
+	
+		System.out.println("Introduzca un numero binario: ");
+		
+		for(int i=0;i<binario.length;i++){
+			binario[i]=teclado.nextByte();
+		
+		}
+	
+		
+		for (byte b : binario) {
+			
+			System.out.print(b+" ");
+		}
+		for(int j=0;j<binario.length;j++){
+		  for(int i=0;i<binario.length;i++){
+			indice=Math.pow(AUX, i)*i;
+			decimal=decimal+indice;
+		 }
+		}
+		System.out.println("El numero convertido a decimal es: "+decimal);
+		
+	}
+
+}

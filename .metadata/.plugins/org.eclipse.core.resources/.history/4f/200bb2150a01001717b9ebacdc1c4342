@@ -1,0 +1,104 @@
+package models;
+
+import java.util.Random;
+
+public class Jugador {
+	
+	private String nombre;
+	private boolean machine;
+	private int pos;
+	public String symbol ;
+	private Random numeroAleatorio;
+	int[] tabl = new int[9];
+	
+	
+	public Jugador (String nombre , boolean machine ){
+		this.nombre = nombre;
+		this.machine=machine;
+	}
+	
+	public void setSymbol(String s){
+		this.symbol = s;
+	}
+	
+	
+	public String getSymbol(){
+		return symbol;
+	}
+	
+	
+
+	
+	public boolean esUnaMaquina(){
+		return machine;
+	}
+	
+	public String getNombreJugador(){
+		return nombre;
+	}
+	
+	public void MueveJugador1(int pos){
+		this.pos = pos;
+		
+		for(int i=0;i<tabl.length; i++){
+			
+			if (tabl[pos] == 0){
+				tabl[pos]= 1;
+			}
+		}
+	}
+	
+	public void MueveJugador2(int pos){
+		this.pos = pos;
+	}
+	
+	public void MueveOrdenador1(int[]array){			//Le pasamos al ordenador el tablero ya definido
+		
+		int n;
+		String  s =getSymbol();
+		if(s.equals("X")){
+			n=1;
+		}else{
+			n=2;
+		}	
+		numeroAleatorio = new Random();	
+    	
+        int aleatorio = numeroAleatorio.nextInt(8)+0;
+		
+		for(int i=0;i<array.length; i++){
+			
+			if (array[aleatorio] == 0){
+				array[aleatorio]= n;
+			}
+		}	
+		
+	}
+	
+	public void MueveOrdenador2(int[]array){			//Le pasamos al ordenador el tablero ya definido con su configuracion actual
+		
+		int n;
+		String  s =getSymbol();
+		if(s.equals("X")){
+			n=1;
+		}else{
+			n=2;
+		}	
+		numeroAleatorio = new Random();	
+    	
+        int aleatorio = numeroAleatorio.nextInt(8)+0;
+		
+		for(int i=0;i<array.length; i++){
+			
+			if (array[aleatorio] == 0){
+				array[aleatorio]= n;
+			}
+		}	
+	}
+
+	
+	
+	
+
+}
+
+

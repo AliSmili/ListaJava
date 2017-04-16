@@ -1,0 +1,13 @@
+
+public class Ejercicio1 {
+
+	public static void main(String[] args) {
+		/* Realizar un programa que convierta un numero binario a decimal.
+		 * El numero debe estar guardado en un variable entera, por ejemplo, el 01 es 5 decimal.
+		 * El programa mostrara un eror si el numero no es binario.ej: 100510.
+		 * REpite el ejercicio con el numero guardado en un array
+		 */
+
+	}
+
+}

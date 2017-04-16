@@ -1,0 +1,259 @@
+package main;
+import models.*;
+import java.util.*;
+public class Partida7yMedio {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		Scanner teclado = new Scanner (System.in);
+		String opcion ="";
+		float suma1=0;
+		float suma2=0;
+		boolean SigueJugador = true;
+		boolean SigueBanca = true;
+		boolean oculta=false;
+		int num;
+		boolean SiguePartida= true;
+		
+		Carta[] cartasJugador = new Carta[10];								//Defino un valor maximo de 10 ya que es imposible llegar a ese tamaño
+		Carta[] cartasBanca = new Carta[10];
+		
+		
+		
+		//Crear Baraja nueva de 40 cartas
+		
+		 Baraja misCartas = new Baraja("Española", 1);						//Se crea una baraja nueva de 40 cartas
+	        misCartas.barajar();											//Se baraja el mazo
+	        
+	        misCartas.mostrarCartas(misCartas);								//Se reparten todas las cartas para averiguar le veracidad del metodo barajar
+	        
+	        misCartas.barajar();
+	        
+	     for(int i=0; i<10 && SigueJugador; i++){
+	        System.out.println("El jugador pide una carta :");
+	        
+	        
+	        cartasJugador[i]=misCartas.repartirCartas();
+	        
+	        suma1 +=cartasJugador[i].getValor7yMedia();
+	        
+	        if (suma1 < 7.5f){
+	        	SigueJugador = true;
+	        	     
+	        
+	       }else{
+	    	   if (suma1 == 7.5f){
+	    		   
+	    		   System.out.println("Maravilloso !! tiene 7,5 justo ! Ahora toca a la banca");
+	    		   SigueJugador=false;
+	    		   SiguePartida = true;
+	    		   break;
+	    	   }
+	    		   
+	    	   else{
+	    	   
+	    	   SigueJugador = false;
+	    	    
+	    	   System.out.println(" Que pena !! Se ha pasado de 7,5 y Ud pierde !!");
+	    	   SiguePartida=false;
+	       
+	    	   }
+	       }
+	       
+	        if(SiguePartida==true && SigueJugador==true ){
+	        
+	        	
+	        	if(oculta ==false){
+	        System.out.println("Elija una opcion : 1-Ocultar   2-Mostrar ");
+	        num=ValidarOpcion(opcion);
+	        
+	        switch(num){
+	        
+	        case 1:
+	        	System.out.println("El jugador ha ocultado su carta ");
+	        	System.out.println("El jugador tiene esta carta :"+cartasJugador[i].getNombreCarta());
+	        	oculta=true;
+	        	break;
+	        
+	        case 2:
+	        	System.out.println("La carta a la vista del jugador es :"+cartasJugador[i].getNombreCarta());break;
+	        	
+	        }
+	        	}else{
+	        		      
+	     	        
+	     	        System.out.println("La carta a la vista del jugador es :"+cartasJugador[i].getNombreCarta());break;
+	     	        	
+	     	        }
+	        		
+	        	}
+	    	System.out.println("Elija una opcion : 1-Seguir   2-Plantarse ");
+	    	num=ValidarOpcion(opcion);
+	    	
+	    	switch(num){											//El case 1 lo omito ya que si sigue vuelve al bucle
+	    	
+	    	case 2:
+	    		System.out.println("El jugador se ha plantado y le toca el turno a la banca");
+	        	SigueJugador = false;break;
+	    		
+	    	}
+	        }
+	       
+	     
+	     
+	     //Le toca a la banca
+	     
+	     if(SigueJugador==false && SiguePartida==true){
+	    	 
+	    	 for(int i=0; i<10 && SigueBanca; i++){
+	 	        System.out.println("La banca se autoreparte una carta :");
+	 	        
+	 	        
+	 	        cartasBanca[i]=misCartas.repartirCartas();
+	 	        
+	 	        suma2 +=cartasBanca[i].getValor7yMedia();
+	 	        
+	 	        if (suma2 < 7.5f){
+	 	        	SigueBanca = true;
+	 	        	     
+	 	        
+	 	       }else{
+	 	    	   if (suma2 == 7.5f){
+	 	    		   
+	 	    		   System.out.println("Maravilloso !! tiene 7,5 justo ! La banca gana !!");
+	 	    		   System.out.println("FIN DEL JUEGO");
+	 	    		   break;
+	 	    	   }
+	 	    		   
+	 	    	   else{
+	 	    	   
+	 	    	   SigueBanca = false;
+	 	    	    
+	 	    	   System.out.println(" Que pena !! Se ha pasado de 7,5 y Gana el Jugador !!");
+	 	    	   SiguePartida=false;
+	 	       
+	 	    	   }
+	 	       }
+	 	       while(SiguePartida==true){
+	 	        
+	 	       //La banca siempre enseña sus cartas
+	 	        
+	 	    	System.out.println("Elija una opcion : 1-Seguir   2-Plantarse ");
+	 	    	num=ValidarOpcion(opcion);
+	 	    	
+	 	    	switch(num){											//El case 1 lo omito ya que si sigue vuelve al bucle
+	 	    	
+	 	    	case 2:
+	 	    		System.out.println("La banca se ha plantado !");
+	 	        	SigueBanca = false;break;
+	 	    		
+	 	    	}
+	 	    	
+	 	    	//Comparar resultados de ambos y declarar el ganador
+	 	    	
+	 	    	if(suma2>=suma1){
+	 	    		System.out.println("Gana la banca contra el Jugador !");
+	 	    	}else{
+	 	    		System.out.println("Gana el Jugdor contra banca !");
+	 	    	}
+	 	    	
+	 	    	
+	 	    	
+	     
+	 	       }
+	     
+	     
+	      
+	        	
+	        	
+	        
+	    	 }
+	        
+	       
+	     }          
+	    
+	}
+	
+	/*public static void ComprobarResultado7_5(float res){
+		
+        boolean SigueJugador=true;
+        boolean SiguePartida = true;
+        if (res < 7.5f){
+        	SigueJugador = true;
+        	     
+        
+       }else{
+    	   if (res == 7.5f){
+    		   
+    		   System.out.println("Maravilloso !! tiene 7,5 justo ! Ahora toca a la banca");
+    		   SigueJugador = false;
+    	   }
+    		   
+    	   else{
+    	   
+    	   SigueJugador = false;
+    	    
+    	   System.out.println(" Que pena !! Se ha pasado de 7,5 y Ud pierde !!");
+    	   SiguePartida=false;
+       
+    	   }
+       }
+       }*/
+            
+    
+
+
+	public static int ValidarOpcion(String entrada){
+		boolean error=false;
+		Scanner teclado=new Scanner(System.in);
+		int num=0;
+		do{
+			       
+			entrada=teclado.next();
+			error=false;
+			try{
+				
+				num=Integer.parseInt(entrada);
+							
+			}catch(Exception e){
+				System.out.println("Error! No ha introducido un número !");
+				error=true;
+			}
+			if((num<1 || num>2) && !error){
+				System.out.println("La Opcion introducida no es válida !");
+				error=true;
+			}
+					
+		}while(error);
+		
+		return num;
+		
+		
+	}
+	    
+}       
+	      
+	        
+	        
+	        
+	 
+	        
+	        
+		
+
+		
+		
+		
+	
+		
+		
+		
+		
+		
+		
+		
+
+	
+
+

@@ -1,0 +1,101 @@
+package models;
+
+public class Partida {
+	
+	private int modoJuego ;
+	private int[] tablero;
+	private final int CASILLAS = 9;
+	private int numJugador1;
+	private int numJugador2;
+	private int pos;
+	private String nombre;
+	private boolean machine;
+	
+	
+
+
+public Partida (String nombre, boolean machine){
+	
+	
+	this.modoJuego = modoJuego;
+	this.numJugador1= numJugador1;
+	this.numJugador2 = numJugador2;
+	this.tablero = new int[CASILLAS];					//instanciamos el array
+		
+}
+
+@Override
+public String toString(){
+     return "El modo de juego es "+modoJuego + " El numero del jugador 1 es  " + numJugador1+ " Y el numero del jugador 2 es "+numJugador2;
+ }
+//GETTERS
+
+public String getModoJuego(){
+	String s="";
+	if(modoJuego == 0){
+		s= "El juego se desarrollara entre 2 jugadores humanos";
+	}else{
+		if(modoJuego==1){
+			s="El juego se disputara entre un jugador contra la máquina";
+		}else{
+			if(modoJuego==2){
+				s="El juego se disputará entre dos máquinas";
+			}else{
+				s="El modo que se ha introducido no es válido";
+			}
+		}
+	}
+	return s;	
+}
+
+public int getJugador1(){
+	return numJugador1;
+}
+
+public int getJugador2(){
+	return numJugador2;
+}
+
+
+//SETTERS
+
+public void setModoJuego(int modoJuego){
+	this.modoJuego = modoJuego;
+		
+}
+
+public void setJugador1(int numJugador1){
+	this.numJugador1=numJugador1;
+}
+
+public void getJugador2(int numJugador2){
+	this.numJugador2 = numJugador2;
+}
+
+public void MueveJugador1(int pos){
+	this.pos = pos;
+	
+	
+}
+
+public void MueveJugador2(int pos){
+	this.pos = pos;
+		
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

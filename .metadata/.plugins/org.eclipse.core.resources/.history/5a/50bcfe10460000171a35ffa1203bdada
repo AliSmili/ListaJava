@@ -1,0 +1,51 @@
+package models;
+
+public class Jugador {
+	
+	private String nombre;
+	private boolean machine;
+	private int pos;
+	public String symbol ;
+	
+	
+	public Jugador (String nombre , boolean machine ){
+		this.nombre = nombre;
+		this.machine=machine;
+	}
+	
+	public void setSymbol(String s){
+		this.symbol = s;
+	}
+	
+	
+	public String getSimbol(){
+		return symbol;
+	}
+	
+	public boolean esUnaMaquina(){
+		return machine;
+	}
+	
+	public String getNombreJugador(){
+		return nombre;
+	}
+	
+	public void MueveJugador1(int pos){
+		this.pos = pos;
+	}
+	
+	public void MueveJugador2(int pos){
+		this.pos = pos;
+	}
+	
+	public void MueveOrdenador1(int pos){
+		this.pos = pos;
+	}
+	
+	public void MueveOrdenador2(int pos){
+		this.pos = pos;
+	}
+
+}
+
+

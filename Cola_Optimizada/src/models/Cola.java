@@ -1,0 +1,31 @@
+package models;
+
+public class Cola<T> {
+	
+	 protected int sp; //empty stack
+	    protected T[] head; //array
+	    private int size;
+
+	    @SuppressWarnings("unchecked")
+	    public void  Cola(T t){
+	        sp = -1;
+	        size = 24; //sets the default size of the stack
+	        head = (T[]) new Object [size];
+	    }
+	    public boolean isFull(){
+	        return sp == -1;
+	    }
+	    public void push (T t){
+	        if (!isFull())
+	            head[++sp] = t;
+	    }
+	    public T pop (){
+	        if (isFull()){
+	            return null;
+	        }
+	        else 
+	            return head[sp--];  //LINE 30
+	    }
+	}	
+
+

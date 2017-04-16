@@ -1,0 +1,39 @@
+package main;
+import java.util.Scanner;
+import models.*;
+
+
+public class Prueba_Cola {
+
+	private static miCola cola;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		
+		int i = 0;
+		String valor = "";
+		boolean masValores = true;
+		boolean error = false;
+		cola= new miCola();
+		
+		
+
+		
+	
+
+
+		
+
+	}
+	
+	public static void MostrarMenu(){
+		
+		System.out.println("+++ Seleccione Un Opción del Menú : +++");
+		System.out.println("1. Ver Tamaño de la Cola");
+		System.out.println("2. Añadir elemento a la Cola");
+		System.out.println("3. Extraer primer elemento de la Cola");
+		System.out.println("4. Quitar un elemento de la Cola");
+		System.out.println("5. Listar elementos de la Cola");
+		
+	}
+
+}

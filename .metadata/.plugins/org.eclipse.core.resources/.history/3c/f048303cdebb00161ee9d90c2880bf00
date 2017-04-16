@@ -1,0 +1,23 @@
+package vector;
+
+public class arrayNumDesplazamiento {    //Ejercicio corregido sobre desplazamiento de indices de un vector
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int Numeros[]={2,5,6,11};
+		int temp=Numeros[0];
+		for(int i=1; i<Numeros.length;i++){
+			int temp1=Numeros[i%Numeros.length];
+			Numeros[i%Numeros.length]=temp;
+			temp=temp1;
+			
+		}
+		for (int num : Numeros) {
+			System.out.print(num+" ");
+			
+		}
+		
+
+	}
+
+}
